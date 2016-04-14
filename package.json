@@ -1,5 +1,5 @@
 {
-  "name": "vue-hex-modal",
+  "name": "vue-hex-modals",
   "description": "A Vue component for modals in the Hex Framework from LionsMouth Digital.",
   "main": "src/Component.vue",
   "author": "Curtis Blackwell <blackwell.curtis@gmail.com>",
