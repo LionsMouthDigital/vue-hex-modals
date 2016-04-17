@@ -2,7 +2,7 @@
   "name": "vue-hex-modals",
   "version": "1.0.0-beta.2",
   "description": "A Vue component for modals in the Hex Framework from LionsMouth Digital.",
-  "main": "src/Component.vue",
+  "main": "src/component.js",
   "author": "Curtis Blackwell <blackwell.curtis@gmail.com>",
   "maintainers": [
     {
@@ -43,7 +43,7 @@
     "grunt-browserify": "^5.0.0",
     "grunt-contrib-uglify": "^1.0.1",
     "load-grunt-config": "^0.19.1",
-    "vue-hex-message": "^1.0.0-beta.7",
+    "vue-hex-message": "^1.0.0-beta.8",
     "vue-hot-reload-api": "^1.3.2",
     "vueify": "^8.0.0",
     "vueify-insert-css": "^1.0.0",
