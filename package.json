@@ -1,6 +1,6 @@
 {
   "name": "vue-hex-modals",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "description": "A Vue component for modals in the Hex Framework from LionsMouth Digital.",
   "main": "src/component.js",
   "author": "Curtis Blackwell <blackwell.curtis@gmail.com>",
