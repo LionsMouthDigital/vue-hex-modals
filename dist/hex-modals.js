@@ -87,7 +87,7 @@ exports.default = {
   }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"modal-overlay\" v-show=\"show\">\n  <slot></slot>\n\n  <div class=\"carousel-pager\">\n    <button v-if=\"carousel\" @click=\"this.active--\">Previous</button>\n    <button v-if=\"carousel\" @click=\"this.active++\">Next</button>\n  </div>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"modal-overlay\" v-show=\"show\">\n  <slot></slot>\n\n  <div class=\"carousel-pager\" v-if=\"carousel\">\n    <button @click=\"this.active--\">Previous</button>\n    <button @click=\"this.active++\">Next</button>\n  </div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = _dereq_("vue-hot-reload-api")
   hotAPI.install(_dereq_("vue"), true)

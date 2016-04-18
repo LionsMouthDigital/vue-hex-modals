@@ -2,9 +2,9 @@
   <div class="modal-overlay" v-show="show">
     <slot></slot>
 
-    <div class="carousel-pager">
-      <button v-if="carousel" @click="this.active--">Previous</button>
-      <button v-if="carousel" @click="this.active++">Next</button>
+    <div class="carousel-pager" v-if="carousel">
+      <button @click="this.active--">Previous</button>
+      <button @click="this.active++">Next</button>
     </div>
   </div>
 </template>
