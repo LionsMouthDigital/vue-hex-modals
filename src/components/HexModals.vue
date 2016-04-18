@@ -1,10 +1,14 @@
 <template>
-  <div class="modal-wrapper" v-show="show">
+  <div class="modal-overlay" v-show="show">
     <slot></slot>
-    <button v-if="carousel" @click="this.active--">Previous</button>
-    <button v-if="carousel" @click="this.active++">Next</button>
+
+    <div class="carousel-pager">
+      <button v-if="carousel" @click="this.active--">Previous</button>
+      <button v-if="carousel" @click="this.active++">Next</button>
+    </div>
   </div>
 </template>
+
 
 <script>
   export default {
@@ -45,7 +49,7 @@
 
     computed: {
       /**
-       * Determine wheter to show the modal wrapper.
+       * Determine wheter to show the modal.
        *
        * @author Curtis Blackwell
        * @return {boolean}
@@ -85,12 +89,31 @@
 
         this.active = i;
         this.$children[this.active - 1].visible = true;
-      }
+      },
+
+      /**
+       * Toggle `.modal-open` on the `body`.
+       *
+       * This enables special styling when a modal is active.
+       *
+       * @author Curtis Blackwell
+       * @return {void}
+       */
+      toggleBodyClass() {
+        var body = document.querySelector('body');
+
+        if (this.visible && body.className.indexOf('modal-open') < 0) {
+          body.className += ' modal-open';
+
+        } else {
+          body.className  = body.className.replace(/modal-open/, '');
+        }
+      },
     },
 
     events: {
       /**
-       * When a modal is dismissed, hide the modal wrapper.
+       * When a modal is dismissed, hide the modal overlay.
        *
        * @author Curtis Blackwell
        * @return {void}
