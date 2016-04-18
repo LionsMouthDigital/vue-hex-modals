@@ -41,6 +41,8 @@
        * @return {void}
        */
       visible() {
+        this.toggleBodyClass();
+
         if (this.visible) {
           this.activateModal(this.active)
         }
@@ -131,6 +133,10 @@
      */
     compiled() {
       this.activateModal(this.active);
+
+      if (this.visible) {
+        this.toggleBodyClass();
+      }
 
       if (this.dismissible) {
         for (var i = 0; i < this.$children.length; i++) {
