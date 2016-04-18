@@ -3,7 +3,7 @@ var HexModals  = _dereq_('./components/HexModals.vue');
 module.exports = HexModals;
 
 },{"./components/HexModals.vue":2}],2:[function(_dereq_,module,exports){
-"use strict";
+'use strict';
 
 Object.defineProperty(exports, "__esModule", {
   value: true
@@ -26,6 +26,8 @@ exports.default = {
       this.activateModal(this.active);
     },
     visible: function visible() {
+      this.toggleBodyClass();
+
       if (this.visible) {
         this.activateModal(this.active);
       }
@@ -52,6 +54,15 @@ exports.default = {
 
       this.active = i;
       this.$children[this.active - 1].visible = true;
+    },
+    toggleBodyClass: function toggleBodyClass() {
+      var body = document.querySelector('body');
+
+      if (this.visible && body.className.indexOf('modal-open') < 0) {
+        body.className += ' modal-open';
+      } else {
+        body.className = body.className.replace(/modal-open/, '');
+      }
     }
   },
 
@@ -64,6 +75,10 @@ exports.default = {
   compiled: function compiled() {
     this.activateModal(this.active);
 
+    if (this.visible) {
+      this.toggleBodyClass();
+    }
+
     if (this.dismissible) {
       for (var i = 0; i < this.$children.length; i++) {
         this.$children[i].dismissible = true;
@@ -72,7 +87,7 @@ exports.default = {
   }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"modal-wrapper\" v-show=\"show\">\n  <slot></slot>\n  <button v-if=\"carousel\" @click=\"this.active--\">Previous</button>\n  <button v-if=\"carousel\" @click=\"this.active++\">Next</button>\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"modal-overlay\" v-show=\"show\">\n  <slot></slot>\n\n  <div class=\"carousel-pager\">\n    <button v-if=\"carousel\" @click=\"this.active--\">Previous</button>\n    <button v-if=\"carousel\" @click=\"this.active++\">Next</button>\n  </div>\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = _dereq_("vue-hot-reload-api")
   hotAPI.install(_dereq_("vue"), true)
