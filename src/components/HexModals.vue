@@ -65,17 +65,20 @@
       /**
        * Set the active modal.
        *
-       * Don't call this method directly. Doing so would end up calling it twice.
-       * Instead, update `this.active`.
+       * Don't call this method directly. Doing so would end up calling it twice, because it ensures
+       * the passed index is neither too high nor low.
+       *
+       * Instead, use `this.showModal(i)`.
        *
        * NOTE The seemingly extra logic in this method exists to make sure everything still works
        * 			even if children are added/removed.
        *
        * @author Curtis Blackwell
-       * @param  {integer|string} i Modal's index.
+       * @param  {integer|string} i Modal's one-based index.
        * @return {integer}
        */
       activateModal(i) {
+        console.log('activated ' + i)
         i = parseInt(i);
 
         var last = this.$children.length;
@@ -91,6 +94,18 @@
 
         this.active = i;
         this.$children[this.active - 1].visible = true;
+      },
+
+      /**
+       * Show the modal of the passed index.
+       *
+       * @author Curtis Blackwell
+       * @param  {integer} i Modals's one-based index.
+       * @return {void}
+       */
+      showModal(i) {
+        this.active  = i;
+        this.visible = true;
       },
 
       /**
