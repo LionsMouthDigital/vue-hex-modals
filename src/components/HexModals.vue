@@ -78,7 +78,6 @@
        * @return {integer}
        */
       activateModal(i) {
-        console.log('activated ' + i)
         i = parseInt(i);
 
         var last = this.$children.length;
