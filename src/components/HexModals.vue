@@ -141,18 +141,21 @@
     },
 
     /**
-     * Make sure only one modal is active when loaded.
+     * Make sure settings are good before rendering.
      *
      * @author Curtis Blackwell
      * @return {void}
      */
     compiled() {
+      // Make sure only one modal is active when loaded.
       this.activateModal(this.active);
 
+      // Add the body class if necessary.
       if (this.visible) {
         this.toggleBodyClass();
       }
 
+      // Conditionally ensure children are dismissible.
       if (this.dismissible) {
         for (var i = 0; i < this.$children.length; i++) {
           this.$children[i].dismissible = true;
