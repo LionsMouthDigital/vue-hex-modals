@@ -160,6 +160,13 @@
           this.$children[i].dismissible = true;
         }
       }
+
+      // Enable dismissing modals via esc key.
+      document.addEventListener("keyup", (e) => {
+        if (this.visible && e.keyCode == 27) {
+          this.visible = false;
+        }
+      });
     },
   }
 </script>

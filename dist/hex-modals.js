@@ -55,6 +55,10 @@ exports.default = {
       this.active = i;
       this.$children[this.active - 1].visible = true;
     },
+    showModal: function showModal(i) {
+      this.active = i;
+      this.visible = true;
+    },
     toggleBodyClass: function toggleBodyClass() {
       var body = document.querySelector('body');
 
@@ -73,6 +77,8 @@ exports.default = {
   },
 
   compiled: function compiled() {
+    var _this = this;
+
     this.activateModal(this.active);
 
     if (this.visible) {
@@ -84,6 +90,12 @@ exports.default = {
         this.$children[i].dismissible = true;
       }
     }
+
+    document.addEventListener("keyup", function (e) {
+      if (_this.visible && e.keyCode == 27) {
+        _this.visible = false;
+      }
+    });
   }
 };
 if (module.exports.__esModule) module.exports = module.exports.default
