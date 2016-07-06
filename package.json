@@ -68,6 +68,6 @@
     }
   ],
   "license": "CC-BY-SA-4.0",
-  "version": "1.0.0-beta.8",
+  "version": "1.0.0-beta.9",
   "main": "src/components/HexModals.vue"
 }
