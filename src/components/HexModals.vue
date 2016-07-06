@@ -4,11 +4,13 @@
     v-show = "show"
     @click = "hide($event.target.className.indexOf('modal-overlay') > -1)"
   >
-    <slot></slot>
+    <div class="modals">
+      <slot></slot>
 
-    <div class="carousel-pager" v-if="carousel">
-      <button @click="this.active--">Previous</button>
-      <button @click="this.active++">Next</button>
+      <div class="carousel-pager" v-if="carousel">
+        <button @click="this.active--">Previous</button>
+        <button @click="this.active++">Next</button>
+      </div>
     </div>
   </div>
 </template>
