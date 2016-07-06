@@ -1,5 +1,9 @@
 <template>
-  <div class="modal-overlay" v-show="show">
+  <div
+    class  = "modal-overlay"
+    v-show = "show"
+    @click = "hide($event.target.className.indexOf('modal-overlay') > -1)"
+  >
     <slot></slot>
 
     <div class="carousel-pager" v-if="carousel">
@@ -32,8 +36,9 @@
        * @return {void}
        */
       active() {
-        this.activateModal(this.active)
+        this.activate(this.active)
       },
+
       /**
        * Make sure the active modal is visible.
        *
@@ -44,7 +49,7 @@
         this.toggleBodyClass();
 
         if (this.visible) {
-          this.activateModal(this.active)
+          this.activate(this.active)
         }
       },
     },
@@ -77,7 +82,7 @@
        * @param  {integer|string} i Modal's one-based index.
        * @return {integer}
        */
-      activateModal(i) {
+      activate(i) {
         i = parseInt(i);
 
         var last = this.$children.length;
@@ -93,6 +98,24 @@
 
         this.active = i;
         this.$children[this.active - 1].visible = true;
+      },
+
+      /**
+       * Hide the modal.
+       *
+       * If a non-boolean value is passed (passing nothing causes Vue to pass the event object),
+       * the modal will be hidden.
+       *
+       * @author Curtis Blackwell
+       * @param  {boolean} condition Whether to hide the modal.
+       * @return {void}
+       */
+      hide(condition) {
+        if (typeof condition === 'boolean' && condition) {
+          this.visible = false;
+        } else if (typeof condition !== 'boolean') {
+          this.visible = false;
+        }
       },
 
       /**
@@ -147,7 +170,7 @@
      */
     compiled() {
       // Make sure only one modal is active when loaded.
-      this.activateModal(this.active);
+      this.activate(this.active);
 
       // Add the body class if necessary.
       if (this.visible) {
