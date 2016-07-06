@@ -186,10 +186,24 @@
         }
       }
 
-      // Enable dismissing modals via esc key.
+      // Enable keyboard commands.
       document.addEventListener("keyup", (e) => {
-        if (this.visible && e.keyCode == 27) {
-          this.visible = false;
+        if (this.visible) {
+          switch (e.keyCode) {
+            // Dismiss modals with esc.
+            case 27:
+              this.visible = false;
+              break;
+            // Previous modal with left arrow or k.
+            case 37:
+            case 75:
+              this.active--;
+              break;
+            case 39:
+            case 74:
+              this.active++;
+              break;
+          }
         }
       });
     },
