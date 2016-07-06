@@ -199,6 +199,7 @@
             case 75:
               this.active--;
               break;
+            // Next modal with right arrow or j.
             case 39:
             case 74:
               this.active++;
