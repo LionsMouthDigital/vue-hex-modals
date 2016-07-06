@@ -2,79 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Hex Modals</title>
+    <title>vue-hex-modals</title>
   </head>
   <body>
-    <h1>Hex Modals</h1>
-    <h2>Visible by default</h2>
-    <hex-modals v-ref:toggle visible>
-      <hex-message dismissible>
-        <h3>Greetings</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
-        </p>
-      </hex-message>
-    </hex-modals>
-
-
-    <h2>Toggle with button</h2>
-    <button @click="this.$refs.toggle.visible = !this.$refs.toggle.visible">
-      Toggle modal
-    </button>
-
-    <hex-modals v-ref:toggle>
-      <hex-message>
-        <h3>Color me toggled</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
-        </p>
-      </hex-message>
-    </hex-modals>
-
-
-    <h2>Carousel</h2>
-    <button @click="this.$refs.carousel.visible = !this.$refs.carousel.visible">
-      Toggle carousel modal
-    </button>
-
-    <hex-modals dismissible carousel v-ref:carousel>
-      <hex-message>
-        <h3>ºㅛº</h3>
-        <p>
-          &hellip;
-        </p>
-      </hex-message>
-
-      <hex-message>
-        <h3>You're still here?</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
-        </p>
-      </hex-message>
-
-      <hex-message>
-        <h3>It's over!</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
-        </p>
-      </hex-message>
-
-      <hex-message>
-        <h3>Go home!</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
-        </p>
-      </hex-message>
-
-      <hex-message>
-        <h3>Go.</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.
-        </p>
-      </hex-message>
-    </hex-modals>
-
-
-    <script src="js/app.js"></script>
+    <app></app>
+    <script src="dist/build.js"></script>
   </body>
 </html>
